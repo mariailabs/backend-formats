@@ -7,11 +7,11 @@ load_dotenv()
 
 # DATABASE
 
-DB_USER = os.getenv("DB_USER")
-DB_HOST = os.getenv("DB_HOST")
-DB_PASSWORD =os.getenv("DB_PASSWORD")
-DB_DATABASE =os.getenv("DB_DATABASE")
-DB_PORT = os.getenv("DB_PORT")
+DB_USER = os.getenv("DATABASE_USER")
+DB_HOST = os.getenv("DATABASE_HOST")
+DB_PASSWORD =os.getenv("DATABASE_PASSWORD")
+DB_DATABASE =os.getenv("DATABASE_NAME")
+DB_PORT = os.getenv("DATABASE_PORT")
 
 # TOKEN SETTINGS
 SECRET_KEY = os.getenv("SECRET_KEY")
@@ -22,3 +22,5 @@ ACCESS_TOKEN_EXPIRE_MINUTES= int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
 
 bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
+
+
