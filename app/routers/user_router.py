@@ -9,7 +9,7 @@ router = APIRouter(
     tags=['user']
 )
 
-@router.get("/users/me/", response_model=UserBase)
+@router.get("/me/", response_model=UserBase)
 async def read_users_me(
     current_user: Annotated[UserBase, Depends(get_current_active_user)]
 ):
