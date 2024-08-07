@@ -11,7 +11,7 @@ router = APIRouter(
     tags=['taxi']
 )
 
-@router.get("/exercises", response_model=List[TaxiBase])
+@router.get("/", response_model=List[TaxiBase])
 def read_exercises(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     exercises = querys.get_exercises(db)
     if not exercises:
