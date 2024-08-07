@@ -23,12 +23,12 @@ class TaxiBase(BaseModel):
 
 class ClientBase(BaseModel):
     id: int
-    fecha_llamada: date
+    fecha_llamada: str
     tipo_documento: str
     numero_documento: str
     nombres: str
     apellido: str
-    fecha_nacimiento: date
+    fecha_nacimiento: str
     edad_en_anos: int
     edad_en_meses: int
     curso_vida: str
