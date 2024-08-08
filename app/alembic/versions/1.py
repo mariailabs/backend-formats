@@ -60,6 +60,7 @@ def upgrade() -> None:
         sa.Column('telefono_de_notificacion', sa.String(length=50), nullable=True),
         sa.Column('motivo_llamada_fallida', sa.String(length=100), nullable=True),
         sa.Column('observaciones', sa.String(length=255), nullable=True),
+        sa.Column('approved', sa.Boolean, nullable=True),
         sa.PrimaryKeyConstraint('id')
     )
 
