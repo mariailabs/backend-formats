@@ -13,7 +13,7 @@ router = APIRouter(
 
 @router.get("/", response_model=List[TaxiBase])
 def read_exercises(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
-    exercises = querys.get_exercises(db)
+    exercises = querys.get_tarifs(db)
     if not exercises:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No hay tarifas")
     return exercises
