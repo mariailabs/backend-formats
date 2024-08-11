@@ -14,3 +14,6 @@ def create_client(db: Session, client: ClientBase):
     db.commit()
     db.refresh(db_client)
     return db_client
+
+def find_by_doc(db: Session, document: str):
+    return db.query(models.Client).filter(models.Client.numero_documento == document).first()
