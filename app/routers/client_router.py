@@ -12,7 +12,7 @@ router = APIRouter(
 )
 
 @router.get("/", response_model=List[ClientBase])
-def read_client(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+def read_client(db: Session = Depends(get_db)):
     exercises = querys.get_client(db)
     if not exercises:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No hay clientes")
@@ -21,3 +21,7 @@ def read_client(current_user: dict = Depends(get_current_user), db: Session = De
 @router.post("/", response_model=ClientBase)
 def create_client(client: ClientBase, db: Session = Depends(get_db)):
     return querys.create_client(db, client)
+
+@router.get("/{doc}", response_model=ClientBase)
+def get_client_by_doc(doc: str,  db: Session = Depends(get_db)):
+    return querys.find_by_doc(db, doc)
